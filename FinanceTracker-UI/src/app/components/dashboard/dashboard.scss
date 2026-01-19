@@ -1,0 +1,40 @@
+.stat-card {
+  transition: all 0.3s ease-in-out;
+  border-radius: 15px;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-5px);
+    shadow: 5 10px 20px rgba(0,0,0,0.15) !important;
+
+    .bg-icon {
+      transform: scale(1.1) translateY(-50%);
+      opacity: 0.4;
+    }
+  }
+
+  .card-body {
+    z-index: 1;
+    min-height: 120px;
+  }
+
+  .bg-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 3.5rem;
+    opacity: 0.15;
+    transition: all 0.3s ease-in-out;
+    z-index: 0;
+  }
+}
+
+.chart-card {
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+h3 {
+  letter-spacing: -0.5px;
+}

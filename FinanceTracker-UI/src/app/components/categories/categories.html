@@ -1,0 +1,85 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 p-3">
+        <h5 class="mb-3"><i class="bi bi-plus-circle text-success"></i> Add Category</h5>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Name</label>
+          <input
+            type="text"
+            [(ngModel)]="newCategory.name"
+            class="form-control"
+            placeholder="e.g. Shopping"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Icon (Emoji)</label>
+          <input
+            type="text"
+            [(ngModel)]="newCategory.icon"
+            class="form-control"
+            placeholder="e.g. 🍔"
+          />
+        </div>
+
+        <button
+          class="btn btn-success w-100 py-2 shadow-sm"
+          (click)="onAdd()"
+          [disabled]="!newCategory.name || !newCategory.icon"
+        >
+          <i class="bi bi-check-lg"></i> Create Category
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+
+      <div *ngIf="isLoading" class="card shadow-sm border-0 p-5 text-center">
+        <div class="spinner-border text-primary mx-auto" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 mb-0 text-muted fw-bold">Updating categories...</p>
+      </div>
+
+      <div *ngIf="!isLoading && categories.length > 0" class="card shadow-sm border-0 overflow-hidden">
+        <div class="table-responsive">
+          <table class="table align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th style="width: 80px">Icon</th>
+                <th>Name</th>
+                <th class="text-center" style="width: 100px">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cat of categories">
+                <td>
+                  <span class="fs-3">{{ cat.icon }}</span>
+                </td>
+                <td>
+                  <span class="fw-bold text-dark">{{ cat.name }}</span>
+                </td>
+                <td class="text-center">
+                  <button class="btn btn-sm btn-outline-danger border-0" (click)="onDelete(cat.id)">
+                    <i class="bi bi-trash fs-5"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div
+        *ngIf="!isLoading && categories.length === 0"
+        class="card shadow-sm border-0 p-5 text-center bg-white"
+      >
+        <i class="bi bi-folder2-open display-4 text-muted"></i>
+        <p class="text-muted mt-3 mb-0">No categories found. Start by adding one!</p>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="auth-wrapper">
+  <div class="card register-card shadow-lg border-0 rounded-4">
+    <div class="card-body p-4 p-md-5">
+
+      <div class="text-center mb-4">
+        <i class="bi bi-person-plus text-success display-4"></i>
+        <h2 class="fw-bold mt-2">Register</h2>
+        <p class="text-muted small">Create your account to start tracking.</p>
+      </div>
+
+      <form (submit)="onRegister()" #regForm="ngForm" novalidate>
+
+        <div class="mb-3">
+          <label class="form-label small fw-bold text-secondary">Email address</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="registerObj.email"
+            #regEmail="ngModel"
+            required
+            email
+            class="form-control bg-light shadow-none py-2"
+            [class.is-invalid]="regEmail.invalid && regEmail.touched"
+            placeholder="example@mail.com"
+          />
+          @if (regEmail.invalid && regEmail.touched) {
+            <div class="invalid-feedback">Enter a valid email address.</div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label small fw-bold text-secondary">Password</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="registerObj.password"
+            #regPass="ngModel"
+            required
+            minlength="6"
+            class="form-control bg-light shadow-none py-2"
+            [class.is-invalid]="regPass.invalid && regPass.touched"
+            placeholder="Min 6 characters"
+          />
+          @if (regPass.invalid && regPass.touched) {
+            <div class="invalid-feedback">Password must be at least 6 characters.</div>
+          }
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label small fw-bold text-secondary">Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            [(ngModel)]="registerObj.confirmPassword"
+            #confPass="ngModel"
+            required
+            class="form-control bg-light shadow-none py-2"
+            [class.is-invalid]="confPass.touched && registerObj.confirmPassword !== registerObj.password"
+            placeholder="Repeat password"
+          />
+          @if (confPass.touched && registerObj.confirmPassword !== registerObj.password) {
+            <div class="invalid-feedback">Passwords do not match!</div>
+          }
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="regForm.invalid || registerObj.confirmPassword !== registerObj.password"
+          class="btn btn-success w-100 py-2 fw-bold shadow-sm rounded-3"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+      <div class="text-center mt-4">
+        <span class="text-muted small">Already have an account? </span>
+        <a routerLink="/login" class="text-success fw-bold text-decoration-none small">Login here</a>
+      </div>
+
+    </div>
+  </div>
+</div>

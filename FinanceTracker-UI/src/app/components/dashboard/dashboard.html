@@ -1,0 +1,58 @@
+<div class="container mt-4 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 p-4 mb-5 chart-card">
+        <h5 class="text-center mb-4 text-muted fw-bold">Income vs Expenses Analysis</h5>
+        <div style="height: 250px">
+          <canvas #myChart></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-12 border-bottom pb-2">
+      <h4 class="fw-bold text-secondary d-flex align-items-center">
+        <i class="bi bi-speedometer2 me-2 text-primary"></i> Financial Overview
+      </h4>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm stat-card bg-success text-white h-100">
+        <div class="card-body py-4 position-relative overflow-hidden z-1">
+          <h6 class="text-uppercase small fw-bold opacity-75 mb-2">Total Income</h6>
+          <h3 class="fw-bold mb-0 text-truncate">
+            {{ summaryData.totalIncome | currency: 'EGP ':'symbol':'1.0-2' }}
+          </h3>
+          <i class="bi bi-graph-up-arrow bg-icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm stat-card bg-danger text-white h-100">
+        <div class="card-body py-4 position-relative overflow-hidden z-1">
+          <h6 class="text-uppercase small fw-bold opacity-75 mb-2">Total Expenses</h6>
+          <h3 class="fw-bold mb-0 text-truncate">
+            {{ summaryData.totalExpenses | currency: 'EGP ':'symbol':'1.0-2' }}
+          </h3>
+          <i class="bi bi-graph-down-arrow bg-icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm stat-card bg-primary text-white h-100">
+        <div class="card-body py-4 position-relative overflow-hidden z-1">
+          <h6 class="text-uppercase small fw-bold opacity-75 mb-2">Current Balance</h6>
+          <h3 class="fw-bold mb-0 text-truncate">
+            {{ summaryData.balance | currency: 'EGP ':'symbol':'1.0-2' }}
+          </h3>
+          <i class="bi bi-wallet2 bg-icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
