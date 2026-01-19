@@ -62,6 +62,7 @@ Bash
 
 dotnet ef database update
 dotnet run
+
 3. Setup Frontend:
 Navigate to FinanceTracker-UI.
 
