@@ -1,0 +1,19 @@
+# --- الأجزاء الخاصة بالباك إند (.NET) ---
+[Bb]in/
+[Oo]bj/
+appsettings.json
+appsettings.Development.json
+*.user
+*.suo
+.vs/
+
+# --- الأجزاء الخاصة بالفرونت إند (Angular) ---
+node_modules/
+dist/
+.angular/
+.vscode/
+.env
+
+# --- ملفات النظام ---
+.DS_Store
+Thumbs.db
