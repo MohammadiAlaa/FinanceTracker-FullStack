@@ -122,14 +122,12 @@ export class Transactions implements OnInit {
       const modalInstance = bootstrap.Modal.getInstance(modalElement);
       if (modalInstance) modalInstance.hide();
 
-      // حل نهائي للـ Warning: إزالة الـ Backdrop والـ attributes يدوياً
       setTimeout(() => {
         document.querySelectorAll('.modal-backdrop').forEach((el) => el.remove());
         document.body.classList.remove('modal-open');
         document.body.style.overflow = 'auto';
         document.body.style.paddingRight = '0';
 
-        // مسح الـ aria-hidden اللي بيسبب الـ Warning
         modalElement.removeAttribute('aria-hidden');
         document
           .querySelectorAll('[aria-hidden="true"]')

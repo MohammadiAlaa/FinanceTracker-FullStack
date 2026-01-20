@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed; // عشان تضمن إنها مالية الشاشة حتى لو المحتوى صغير
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -20,7 +20,7 @@
   max-width: 420px;
   border: none;
   border-radius: 1.5rem;
-  z-index: 10; // عشان تضمن إنها فوق الـ background
+  z-index: 10;
 }
 
 .form-control {
@@ -31,11 +31,11 @@
   &:focus {
     background-color: #fff;
     border-color: #0d6efd;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15); // ظل أزرق خفيف ورايق
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
   }
 
   &.is-invalid {
-    background-color: #fff; // عشان لون الإيرور يظهر بوضوح
+    background-color: #fff; 
   }
 }
 

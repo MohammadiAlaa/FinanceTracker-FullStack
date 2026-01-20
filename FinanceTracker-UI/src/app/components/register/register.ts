@@ -18,18 +18,38 @@ export class Register {
     confirmPassword: '',
   };
 
-  constructor(private authService: Auth, private router: Router) {}
+  constructor(
+    private authService: Auth,
+    private router: Router,
+  ) {}
 
   onRegister() {
     this.authService.register(this.registerObj).subscribe({
       next: (res) => {
-        if (res.isSuccess) {
-          Swal.fire('Success', 'Account created! Please login.', 'success');
-          this.router.navigate(['/login']);
-        }
+        Swal.fire({
+          title: 'Success!',
+          text: 'Account created successfully. Welcome aboard!',
+          icon: 'success',
+          confirmButtonColor: '#198754',
+        }).then(() => {
+          this.router.navigateByUrl('/login');
+        });
       },
       error: (err) => {
-        Swal.fire('Error', err.error.message || 'Registration failed', 'error');
+        console.log('Backend Error handled properly');
+
+        let errorMessage = 'Something went wrong, please try again later';
+
+        if (err.status === 400) {
+          errorMessage = err.error?.message || 'Email already exists or data is invalid';
+        }
+
+        Swal.fire({
+          title: 'Registration Failed',
+          text: errorMessage,
+          icon: 'error',
+          confirmButtonColor: '#dc3545',
+        });
       },
     });
   }

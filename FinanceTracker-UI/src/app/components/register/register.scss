@@ -1,6 +1,7 @@
 .auth-wrapper {
-  background: linear-gradient(rgba(10, 30, 60, 0.7), rgba(10, 30, 60, 0.7)),
-              url('/images/auth-bg.jpg') no-repeat center center fixed;
+  background:
+    linear-gradient(rgba(10, 30, 60, 0.7), rgba(10, 30, 60, 0.7)),
+    url('/images/auth-bg.jpg') no-repeat center center fixed;
   background-size: cover !important;
   height: 100vh;
   width: 100%;
@@ -26,7 +27,7 @@
 
   &:focus {
     background-color: #fff;
-    border-color: #198754; // اللون الأخضر بتاع الريجستر
+    border-color: #198754;
     box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.15);
   }
 

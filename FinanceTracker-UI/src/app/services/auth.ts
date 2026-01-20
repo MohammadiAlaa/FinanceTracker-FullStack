@@ -15,7 +15,6 @@ export class Auth {
     return this.http.post<AuthResponse>(`${this.baseUrl}/login`, model).pipe(
       tap((res) => {
         if (res.isSuccess) {
-          // حفظ التوكن في ذاكرة المتصفح
           localStorage.setItem('token', res.token);
           localStorage.setItem('username', res.username);
         }
@@ -25,7 +24,7 @@ export class Auth {
   register(model: RegisterDto): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.baseUrl}/register`, model);
   }
-  
+
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
